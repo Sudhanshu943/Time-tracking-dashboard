@@ -5,53 +5,46 @@ fetch("data.json")
     const weeklyBtn = document.getElementById("weekly");
     const monthlyBtn = document.getElementById("monthly");
 
-    dailyBtn.addEventListener(
-      "click",
-      (dailyData = () => {
-        data.forEach((item) => {
-          const box = document.querySelector(
-            `.box-${item.title.toLowerCase()}`
-          );
-          box.querySelector(
-            ".time"
-          ).textContent = `${item.timeframes.daily.current}hrs`;
-          box.querySelector(
-            ".previous"
-          ).textContent = `Yesterday - ${item.timeframes.daily.previous}hrs`;
-        });
-      })
-    );
-    weeklyBtn.addEventListener(
-      "click",
-      (weeklyData = () => {
-        data.forEach((item) => {
-          const box = document.querySelector(
-            `.box-${item.title.toLowerCase()}`
-          );
-          box.querySelector(
-            ".time"
-          ).textContent = `${item.timeframes.weekly.current}hrs`;
-          box.querySelector(
-            ".previous"
-          ).textContent = `Last Week - ${item.timeframes.weekly.previous}hrs`;
-        });
-      })
-    );
-    monthlyBtn.addEventListener(
-      "click",
-      (monthlyData = () => {
-        data.forEach((item) => {
-          const box = document.querySelector(
-            `.box-${item.title.toLowerCase()}`
-          );
-          box.querySelector(
-            ".time"
-          ).textContent = `${item.timeframes.monthly.current}hrs`;
-          box.querySelector(
-            ".previous"
-          ).textContent = `Last Month - ${item.timeframes.monthly.previous}hrs`;
-        });
-      })
-    );
+    const removeActiveClass = () => {
+      dailyBtn.classList.remove("active");
+      weeklyBtn.classList.remove("active");
+      monthlyBtn.classList.remove("active");
+    };
+
+    const displayData = (timeframe) => {
+      data.forEach((item) => {
+        const box = document.querySelector(
+          `.box-${item.title.toLowerCase().replace(/\s+/g, "")}`
+        );
+        box.querySelector(
+          ".time"
+        ).textContent = `${item.timeframes[timeframe].current}hrs`;
+        box.querySelector(".previous").textContent = `${
+          timeframe === "daily"
+            ? "Yesterday"
+            : timeframe === "weekly"
+            ? "Last Week"
+            : "Last Month"
+        } - ${item.timeframes[timeframe].previous}hrs`;
+      });
+    };
+
+    dailyBtn.addEventListener("click", () => {
+      removeActiveClass();
+      dailyBtn.classList.add("active");
+      displayData("daily");
+    });
+
+    weeklyBtn.addEventListener("click", () => {
+      removeActiveClass();
+      weeklyBtn.classList.add("active");
+      displayData("weekly");
+    });
+
+    monthlyBtn.addEventListener("click", () => {
+      removeActiveClass();
+      monthlyBtn.classList.add("active");
+      displayData("monthly");
+    });
   })
   .catch((error) => console.error("Error:", error));

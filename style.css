@@ -90,7 +90,8 @@ button {
     color: var(--Pale_Blue);
   }
 }
-button:focus {
+
+button.active {
   color: white;
 }
 
@@ -167,6 +168,6 @@ button:focus {
 .box-social {
   background-color: var(--Violet_social);
 }
-.box-self-care {
+.box-selfcare {
   background-color: var(--Soft_orange_self_care);
 }
