@@ -54,7 +54,7 @@ body {
   font-weight: 200;
 }
 .profile img {
-  width: 4rem;
+  width: clamp(4rem, 6vw, 7.5rem);
   height: auto;
   border: 2px solid white;
   border-radius: 50%;
@@ -98,6 +98,7 @@ button.active {
 .box {
   border-radius: 0.8rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .top-box-img {
@@ -117,12 +118,16 @@ button.active {
 }
 
 .inner-bottem {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
   position: relative;
   background: var(--Dark_blue);
   padding: 0.9rem;
   border-top-left-radius: 0.8rem;
   border-top-right-radius: 0.8rem;
+}
+
+.inner-bottem:hover {
+  background-color: var(--Desaturated_blue);
 }
 
 .box-title {
@@ -143,13 +148,13 @@ button.active {
 }
 
 .time-stmp .time {
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 5rem);
   font-weight: 300;
 }
 
 .time-stmp .previous {
   font-size: 0.7rem;
-  color: var(--Desaturated_blue);
+  color: var(--Pale_Blue);
 }
 
 .box-work {
@@ -170,4 +175,72 @@ button.active {
 }
 .box-selfcare {
   background-color: var(--Soft_orange_self_care);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    grid-template-columns: 9.5rem 1fr;
+  }
+
+  .boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 9rem);
+    gap: 20px;
+  }
+  .profile {
+    padding-bottom: 2rem;
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  h1 {
+    margin-left: 0;
+  }
+
+  .btns {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-left: 20px;
+  }
+
+  .box {
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-title {
+    margin: 0;
+    margin-bottom: 0.8rem;
+    margin-top: 0;
+  }
+  .top-box-img img {
+    width: 3.4rem;
+    top: -0.45rem;
+    right: 0.8rem;
+  }
+
+  .box-title h2,
+  .box-title .btn {
+    font-size: 0.65rem;
+  }
+
+  .inner-bottem {
+    padding: 1rem;
+    border-radius: 0.8rem;
+  }
+
+  .time-stmp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 }
