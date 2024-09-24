@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+  color: white;
+}
+
+:root {
+  --Blue: hsl(246, 80%, 60%);
+  --Light_red_work: hsl(15, 100%, 70%);
+  --Soft_blue_play: hsl(195, 74%, 62%);
+  --Light_red_study: hsl(348, 100%, 68%);
+  --Lime_green_exercise: hsl(145, 58%, 55%);
+  --Violet_social: hsl(264, 64%, 52%);
+  --Soft_orange_self_care: hsl(43, 84%, 65%);
+  --Very_dark_blue: hsl(226, 43%, 10%);
+  --Dark_blue: hsl(235, 46%, 20%);
+  --Desaturated_blue: hsl(235, 45%, 61%);
+  --Pale_Blue: hsl(236, 100%, 87%);
+}
+
+body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: var(--Very_dark_blue);
+  height: 100svh;
+}
+
+.container,
+.boxes {
+  display: grid;
+  gap: 20px;
+}
+
+.profile-box {
+  background: var(--Dark_blue);
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border-radius: 10px;
+}
+
+.profile {
+  border-radius: 10px;
+  padding: 19px 16px;
+  display: flex;
+  align-items: center;
+  flex: 1 1 100%;
+  background: var(--Blue);
+  font-weight: 200;
+}
+.profile img {
+  width: 4rem;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+h1 {
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+h1 span {
+  font-weight: 300;
+  font-size: 0.65rem;
+}
+
+.btns {
+  width: 100%;
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: var(--Desaturated_blue);
+  font-size: small;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--Pale_Blue);
+  }
+}
+button:focus {
+  color: white;
+}
+
+.box {
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.top-box-img {
+  position: relative;
+}
+
+.top-box-img img {
+  position: absolute;
+  width: 3.8rem;
+  top: -0.8rem;
+  right: 0.8rem;
+}
+
+.inner-top-box {
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
+}
+
+.inner-bottem {
+  margin-top: 1.5rem;
+  position: relative;
+  background: var(--Dark_blue);
+  padding: 0.9rem;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+.box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.2rem 0;
+}
+
+.box-title h2,
+.box-title .btn {
+  font-size: 0.85rem;
+}
+.time-stmp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time-stmp .time {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.time-stmp .previous {
+  font-size: 0.7rem;
+  color: var(--Desaturated_blue);
+}
+
+.box-work {
+  background-color: var(--Light_red_work);
+}
+
+.box-play {
+  background-color: var(--Soft_blue_play);
+}
+.box-study {
+  background-color: var(--Light_red_study);
+}
+.box-exercise {
+  background-color: var(--Lime_green_exercise);
+}
+.box-social {
+  background-color: var(--Violet_social);
+}
+.box-self-care {
+  background-color: var(--Soft_orange_self_care);
+}
